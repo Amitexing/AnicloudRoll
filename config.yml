@@ -1,0 +1,15 @@
+#Roll - plugin by LotuxPunk
+#Source code : https://github.com/LotuxPunk/Plugin-Roll
+#Enjoy ! Amusezvous !
+
+#Language (fr, en)
+Lang: 'fr'
+
+#Display result in a local area ?
+#true, false
+Enable local: true
+#A integer
+Radius local: 30
+
+#/roll sort a number between 1 & 20 by default, set your default max number :
+Faces: 20
