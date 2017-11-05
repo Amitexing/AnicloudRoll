@@ -1,8 +1,8 @@
 name: Roll
 main: com.vandendaelen.roll.Roll
-version: 1.3
+version: 1.4
 author: LotuxPunk
-website: http://vandendaelen.com/
+website: https://github.com/LotuxPunk/Roll
 commands:
   roll:
     description: Donne un chiffre random a un gars lambda.

@@ -1,9 +1,6 @@
 #Roll - plugin by LotuxPunk
-#Source code : https://github.com/LotuxPunk/Plugin-Roll
-#Enjoy ! Amusezvous !
-
-#Language (fr, en)
-Lang: 'fr'
+#Source code : https://github.com/LotuxPunk/Roll
+#Enjoy ! Amusez-vous !
 
 #Display result in a local area ?
 #true, false
@@ -13,3 +10,7 @@ Radius local: 30
 
 #/roll sort a number between 1 & 20 by default, set your default max number :
 Faces: 20
+
+#Result sentence (&p = player, &f = max number (faces), &b = bonus/malus, &n = number of /roll )
+Result: '&p §fa obtenu &n sur un dé à &f faces'
+Result with bonus: '&p §fa obtenu &n sur un dé à &f faces, avec un bonus de &b'

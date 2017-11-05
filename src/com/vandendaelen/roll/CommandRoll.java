@@ -24,6 +24,8 @@ public class CommandRoll implements CommandExecutor {
 		int faces = plugin.getConfig().getInt("Faces");
 		int radius = plugin.getConfig().getInt("Radius local");
 		boolean localRadius = plugin.getConfig().getBoolean("Enable local");
+		String result = plugin.getConfig().getString("Result");
+		String resultWithBonus = plugin.getConfig().getString("Result with bonus");
 
 		if(args.length != 0) {
 			int nbrMax = Integer.parseInt(args[0]);
@@ -45,25 +47,25 @@ public class CommandRoll implements CommandExecutor {
 			if(bonus!=0) {
 				for(Player player : Bukkit.getOnlinePlayers()) {
 					if(player.getLocation().distance(pSender.getLocation()) < radius) {
-						player.sendMessage(pSender.getDisplayName()+"§f a obtenu "+randomInt+" sur un dé à "+faces+" faces, avec un bonus de "+bonus);
+						player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
 					}
 				}
 			} else {
 				for(Player player : Bukkit.getOnlinePlayers()) {
 					if(player.getLocation().distance(pSender.getLocation()) < radius) {
-						player.sendMessage(pSender.getDisplayName()+"§f a obtenu "+randomInt+" sur un dé à "+faces+" faces");
+						player.sendMessage(getSentence(result,pSender.getDisplayName(),faces, bonus, randomInt));
 					}
 				}
 			}
 		} else {
 			if(bonus!=0) {
 				for(Player player : Bukkit.getOnlinePlayers()) {
-					player.sendMessage(pSender.getDisplayName()+"§f a obtenu "+randomInt+" sur un dé à "+faces+" faces, avec un bonus de "+bonus);
+					player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
 
 				}
 			} else {
 				for(Player player : Bukkit.getOnlinePlayers()) {
-					player.sendMessage(pSender.getDisplayName()+"§f a obtenu "+randomInt+" sur un dé à "+faces+" faces");
+					player.sendMessage(getSentence(result,pSender.getDisplayName(),faces, bonus, randomInt));
 				}
 			}
 		}
@@ -88,4 +90,12 @@ public class CommandRoll implements CommandExecutor {
 		return randomGenerator.nextInt(nbr) + bonus+1;
 	}
 
+	public String getSentence(String s, String playerUsername, int faces, int bonus, int randomInt) {
+		String a, b , c, d;
+		a = s.replaceAll("&p",playerUsername);
+		b = a.replaceAll("&f", faces+"");
+		c = b.replaceAll("&b", bonus+"");
+		d = c.replaceAll("&n", randomInt+"");
+		return d;
+	}
 }
