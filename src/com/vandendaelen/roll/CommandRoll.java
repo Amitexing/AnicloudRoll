@@ -26,6 +26,7 @@ public class CommandRoll implements CommandExecutor {
 		boolean localRadius = plugin.getConfig().getBoolean("Enable local");
 		String result = plugin.getConfig().getString("Result");
 		String resultWithBonus = plugin.getConfig().getString("Result with bonus");
+		String resultWithMalus = plugin.getConfig().getString("Result with malus");
 
 		if(args.length != 0) {
 			int nbrMax = Integer.parseInt(args[0]);
@@ -44,10 +45,16 @@ public class CommandRoll implements CommandExecutor {
 			randomInt = randomRoll();
 		}
 		if(localRadius) {
-			if(bonus!=0) {
+			if(bonus > 0) {
 				for(Player player : Bukkit.getOnlinePlayers()) {
 					if(player.getLocation().distance(pSender.getLocation()) < radius) {
 						player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
+					}
+				}
+			} else if(bonus < 0 ) {
+				for(Player player : Bukkit.getOnlinePlayers()) {
+					if(player.getLocation().distance(pSender.getLocation()) < radius) {
+						player.sendMessage(getSentence(resultWithMalus,pSender.getDisplayName(),faces, bonus, randomInt));
 					}
 				}
 			} else {
@@ -58,10 +65,13 @@ public class CommandRoll implements CommandExecutor {
 				}
 			}
 		} else {
-			if(bonus!=0) {
+			if(bonus > 0) {
 				for(Player player : Bukkit.getOnlinePlayers()) {
 					player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
-
+				}
+			} else if(bonus < 0) {
+				for(Player player : Bukkit.getOnlinePlayers()) {
+					player.sendMessage(getSentence(resultWithMalus,pSender.getDisplayName(),faces, bonus, randomInt));
 				}
 			} else {
 				for(Player player : Bukkit.getOnlinePlayers()) {

@@ -14,3 +14,4 @@ Faces: 20
 #Result sentence (&p = player, &f = max number (faces), &b = bonus/malus, &n = number of /roll )
 Result: '&p §fa obtenu &n sur un dé à &f faces'
 Result with bonus: '&p §fa obtenu &n sur un dé à &f faces, avec un bonus de &b'
+Result with malus: '&p §fa obtenu &n sur un dé à &f faces, avec un malus de &b'
