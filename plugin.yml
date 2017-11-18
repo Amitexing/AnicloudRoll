@@ -1,6 +1,6 @@
 name: Roll
 main: com.vandendaelen.roll.Roll
-version: 1.4.1
+version: 1.4.2
 author: LotuxPunk
 website: https://github.com/LotuxPunk/Roll
 commands:

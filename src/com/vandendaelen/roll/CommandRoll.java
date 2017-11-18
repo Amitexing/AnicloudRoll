@@ -46,43 +46,41 @@ public class CommandRoll implements CommandExecutor {
 		}
 		if(localRadius) {
 			if(bonus > 0) {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					if(player.getLocation().distance(pSender.getLocation()) < radius) {
-						player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
-					}
-				}
+				messageDisplayer(resultWithBonus,pSender,faces, bonus, randomInt, radius);
 			} else if(bonus < 0 ) {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					if(player.getLocation().distance(pSender.getLocation()) < radius) {
-						player.sendMessage(getSentence(resultWithMalus,pSender.getDisplayName(),faces, bonus, randomInt));
-					}
-				}
+				messageDisplayer(resultWithMalus,pSender,faces, bonus, randomInt, radius);
 			} else {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					if(player.getLocation().distance(pSender.getLocation()) < radius) {
-						player.sendMessage(getSentence(result,pSender.getDisplayName(),faces, bonus, randomInt));
-					}
-				}
+				messageDisplayer(result,pSender,faces, bonus, randomInt, radius);
 			}
 		} else {
 			if(bonus > 0) {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					player.sendMessage(getSentence(resultWithBonus,pSender.getDisplayName(),faces, bonus, randomInt));
-				}
+				messageDisplayer(resultWithBonus,pSender,faces, bonus, randomInt);
 			} else if(bonus < 0) {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					player.sendMessage(getSentence(resultWithMalus,pSender.getDisplayName(),faces, bonus, randomInt));
-				}
+				messageDisplayer(resultWithMalus,pSender,faces, bonus, randomInt);
 			} else {
-				for(Player player : Bukkit.getOnlinePlayers()) {
-					player.sendMessage(getSentence(result,pSender.getDisplayName(),faces, bonus, randomInt));
-				}
+				messageDisplayer(result,pSender,faces, bonus, randomInt);
 			}
 		}
 
 
 
 		return true;
+	}
+
+	public void messageDisplayer(String result,Player p,int faces,int bonus,int randomInt) {
+		for(Player player : Bukkit.getOnlinePlayers()) {
+			player.sendMessage(getSentence(result,p.getDisplayName(),faces, bonus, randomInt));
+		}
+	}
+
+	public void messageDisplayer(String result,Player p,int faces,int bonus,int randomInt, int radius) {
+		for(Player player : Bukkit.getOnlinePlayers()) {
+			if(player.getWorld()==p.getWorld()) {
+				if(player.getLocation().distance(p.getLocation()) < radius) {
+					player.sendMessage(getSentence(result,p.getDisplayName(),faces, bonus, randomInt));
+				}
+			}
+		}
 	}
 
 	public int randomRoll() {
@@ -101,7 +99,7 @@ public class CommandRoll implements CommandExecutor {
 	}
 
 	public String getSentence(String s, String playerUsername, int faces, int bonus, int randomInt) {
-		String a, b , c, d;
+		String a, b, c, d;
 		a = s.replaceAll("&p",playerUsername);
 		b = a.replaceAll("&f", faces+"");
 		c = b.replaceAll("&b", bonus+"");
