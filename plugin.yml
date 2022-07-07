@@ -1,10 +1,10 @@
-name: Roll
+name: AnicloudRoll
 main: com.vandendaelen.roll.Roll
-version: 1.4.2
-author: LotuxPunk
-website: https://github.com/LotuxPunk/Roll
+version: 1.4.3
+author: Amitexing & LotuxPunk
+website: https://anicloud.ru
 commands:
   roll:
-    description: Donne un chiffre random a un gars lambda.
-    usage: /roll [nombre max] [-][nombre bonus/malus]
+    description: Выпадает случайное число в промежутке.
+    usage: /roll [максимальное число] [-][число плюс/минус]
     aliases: [r]
