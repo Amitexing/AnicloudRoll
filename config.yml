@@ -9,5 +9,5 @@ Faces: 20
 
 #Сообщения о результате (&p = игрок, &f = грани, &b = плюс/минус, &n = число )
 Result: '&p §fвыбил &n на кубике с &f гранями'
-Result with bonus: '&p §fвыбил &n на кубике с &f гранями &b'
-Result with malus: '&p §fвыбил &n на кубике с &f гранями &b'
+Result with bonus: '&p §fвыбил &n (&b) на кубике с &f гранями'
+Result with malus: '&p §fвыбил &n (&b) на кубике с &f гранями'
