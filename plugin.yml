@@ -1,6 +1,6 @@
 name: AnicloudRoll
 main: com.vandendaelen.roll.Roll
-version: 1.4.3
+version: 1.4.4
 author: Amitexing & LotuxPunk
 website: https://anicloud.ru
 commands:

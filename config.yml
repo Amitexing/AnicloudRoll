@@ -1,13 +1,13 @@
 #Писать результат в локал?
 #true, false
 Enable local: true
-#A integer
+#Радиус, если true
 Radius local: 200
 
 #Стандароно /roll в промежутке 1 & 20, кастомное значение:
 Faces: 20
 
-#Сообщения о результате (&p = player, &f = max number (faces), &b = bonus/malus, &n = number of /roll )
+#Сообщения о результате (&p = игрок, &f = грани, &b = плюс/минус, &n = число )
 Result: '&p §fвыбил &n на кубике с &f гранями'
-Result with bonus: '&p §fвыбил &n на кубике с &f гранями плюс &b'
-Result with malus: '&p §fвыбил &n на кубике с &f гранями минус &b'
+Result with bonus: '&p §fвыбил &n на кубике с &f гранями &b'
+Result with malus: '&p §fвыбил &n на кубике с &f гранями &b'
